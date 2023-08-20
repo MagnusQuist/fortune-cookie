@@ -9,36 +9,15 @@ on:
       - main 
 
 jobs:
-  build:
-    name: Build
+  test:
+    name: Test Frontend
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
         uses: actions/checkout@v3
 
-      - name: Build the backend
-        run: cd backend && go build
-
       - name: Build the frontend
         run: cd frontend && go build
 
-      - name: Archive the build artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: Build artifacts
-          path: |
-            backend/code
-            frontend/code
-
-  test:
-    runs-on: ubuntu-latest
-    needs: [build]
-    steps:
-      - name: Download frontend artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: frontend/code
-          path: .
-
       - name: Run Frontend Tests
-        run: go test
+        run: cd frontend && go test
