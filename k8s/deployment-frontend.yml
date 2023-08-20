@@ -1,19 +1,33 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  labels:
+    app: fortune-cookie-frontend
   name: fortune-cookie-frontend
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: fortune-cookie-frontend
+  strategy: {}
   template:
     metadata:
       labels:
         app: fortune-cookie-frontend
     spec:
       containers:
-        - name: frontend
-          image: helleberg/fortune-cookie-frontend:latest
+        - image: helleberg/fortune-cookie-frontend:latest
+          name: fortune-cookie-frontend
           ports:
             - containerPort: 8080
+          env:
+            - name: BACKEND_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-config
+                  key: backend_host
+            - name: BACKEND_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-config
+                  key: backend_port
