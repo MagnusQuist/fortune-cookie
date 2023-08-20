@@ -91,12 +91,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Kubectl
-        uses: azure/setup-kubectl@v3
-        with:
-          kubeconfig: ${{ secrets.KUBE_CONFIG }}
-          version: 'latest'
-
       - name: Deploy to Kubernetes
         run: |
-          kubectl apply -f ./k8s/deployment-frontend.yaml
+          echo "${{ secrets.KUBECONFIG }}" | base64 -d > kubeconfig
+          kubectl --kubeconfig kubeconfig apply -f ./k8s
