@@ -33,7 +33,7 @@ jobs:
             latest
             ${{ steps.vars.outputs.sha_short }}
           registry: docker.io
-          repository: helleberg/fortune-cookie-frontend
+          repository: oskarboysen/fortune-cookie-frontend
 
       - name: Build and push backend
         uses: docker/build-push-action@v4
@@ -45,4 +45,4 @@ jobs:
             latest
             ${{ steps.vars.outputs.sha_short }}
           registry: docker.io
-          repository: helleberg/fortune-cookie-backend
+          repository: oskarboysen/fortune-cookie-backend
