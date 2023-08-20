@@ -32,11 +32,7 @@ jobs:
           context: ./frontend/
           dockerfile: Dockerfile
           push: true
-          tags: |
-            latest
-            ${{ steps.vars.outputs.sha_short }}
-          registry: docker.io
-          repository: ${{ secrets.DOCKERHUB_USERNAME }}/fortune-cookie-frontend
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/fortune-cookie-frontend:${{ steps.vars.outputs.sha_short }}
 
   push_backend:
     name: Push backend Docker image to Docker Hub
@@ -64,8 +60,4 @@ jobs:
           context: ./backend/
           dockerfile: Dockerfile
           push: true
-          tags: |
-            latest
-            ${{ steps.vars.outputs.sha_short }}
-          registry: docker.io
-          repository: ${{ secrets.DOCKERHUB_USERNAME }}/fortune-cookie-backend
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/fortune-cookie-backend:${{ steps.vars.outputs.sha_short }}
