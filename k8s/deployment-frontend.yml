@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: echo "${{ secrets.DOCKERHUB_USERNAME }}"/fortune-cookie-frontend:latest
+          image: helleberg/fortune-cookie-frontend:latest
           ports:
             - containerPort: 8080
