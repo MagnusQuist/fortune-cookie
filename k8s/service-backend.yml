@@ -12,5 +12,3 @@ spec:
   selector:
     app: fortune-cookie-backend
   type: ClusterIP
-status:
-  loadBalancer: {}
