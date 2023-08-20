@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fortune-cookie-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fortune-cookie-backend
+  template:
+    metadata:
+      labels:
+        app: fortune-cookie-backend
+    spec:
+      containers:
+        - name: backend
+          image: ${{ secrets.DOCKERHUB_USERNAME }}/fortune-cookie-backend:latest
+          ports:
+            - containerPort: 9000
