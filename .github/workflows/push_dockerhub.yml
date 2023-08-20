@@ -23,13 +23,13 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: Frontend
-          path: /artifact/frontend/
+          path: ./frontend
       
       - name: Archive the backend build artifacts
         uses: actions/upload-artifact@v3
         with:
           name: Backend
-          path: /artifact/backend/
+          path: ./backend
 
   push_frontend:
     name: Push frontend Docker image to Docker Hub
