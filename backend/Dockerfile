@@ -12,4 +12,5 @@ RUN apk --no-cache add ca-certificates
 WORKDIR /root/
 COPY --from=build /usr/src/app .
 EXPOSE 9000
+
 CMD ["./app"]
