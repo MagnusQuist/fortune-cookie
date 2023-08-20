@@ -3,7 +3,7 @@ name: Publish Docker image
 on:
   push:
     branches: 
-      - main_GH-4_osb_container-registry
+      - main
 
 jobs:
   push_frontend:
