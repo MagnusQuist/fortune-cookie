@@ -19,7 +19,7 @@ spec:
         - image: helleberg/fortune-cookie-frontend:latest
           name: fortune-cookie-frontend
           ports:
-            - containerPort: 8080
+            - containerPort: 5000
           env:
             - name: BACKEND_HOST
               valueFrom:

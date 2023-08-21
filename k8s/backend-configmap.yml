@@ -6,4 +6,4 @@ metadata:
 data:
   # all data points are handled as strings
   backend_host: "fortune-cookie-backend"
-  backend_port: "9000"
+  backend_port: "5000"
