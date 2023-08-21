@@ -18,16 +18,9 @@ spec:
       containers:
         - image: helleberg/fortune-cookie-frontend:latest
           name: fortune-cookie-frontend
-          ports:
-            - containerPort: 5000
           env:
             - name: BACKEND_HOST
-              valueFrom:
-                configMapKeyRef:
-                  name: backend-config
-                  key: backend_host
+              value: "fortune-cookie-backend"
+              
             - name: BACKEND_PORT
-              valueFrom:
-                configMapKeyRef:
-                  name: backend-config
-                  key: backend_port
+              value: "9000"

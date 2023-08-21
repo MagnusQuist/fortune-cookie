@@ -6,9 +6,9 @@ metadata:
   name: fortune-cookie-backend
 spec:
   ports:
-    - port: 5000
+    - port: 9000
       protocol: TCP
-      targetPort: 5000
+      targetPort: 9000
   selector:
     app: fortune-cookie-backend
   type: ClusterIP

@@ -18,4 +18,4 @@ spec:
         - image: helleberg/fortune-cookie-backend:latest
           name: fortune-cookie-backend
           ports:
-            - containerPort: 5000
+            - containerPort: 9000

@@ -6,9 +6,9 @@ metadata:
   name: fortune-cookie-frontend
 spec:
   ports:
-    - port: 5000
+    - port: 8080
       protocol: TCP
-      targetPort: 5000
+      targetPort: 8080
       nodePort: 30001
   selector:
     app: fortune-cookie-frontend
