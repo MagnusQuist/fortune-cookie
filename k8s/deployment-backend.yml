@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: fortune-cookie-backend
+  name: fortune-cookie-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fortune-cookie-backend
+  template:
+    metadata:
+      labels:
+        app: fortune-cookie-backend
+    spec:
+      containers:
+        - image: helleberg/fortune-cookie-backend:latest
+          name: fortune-cookie-backend
+          ports:
+            - containerPort: 9000
